@@ -1,60 +1,93 @@
 import './style.css';
-import {
-  todoTasks, todoContainer, userTask,
-} from './modules/variable.js';
-import Actions from './modules/actions.js';
-import Task from './modules/task.js';
-import TaskStatus from './modules/taskStatus.js';
+import TodoList from './modules/TodoList.js';
+import Todo from './modules/Todo.js';
 
-let editId;
-let isEditedTask = false;
-// On page load render the dynamically created list of tasks in the dedicated placeholder.
-window.addEventListener('load', () => {
-  Actions.displayTasks(todoTasks);
-});
+const formSubmit = document.querySelector('#form');
+const clear = document.querySelector('#remove');
+const todoElement = document.querySelector('.todo-container');
 
-// populate the localStorage and the To-do List when the user press Enter
-userTask.addEventListener('keyup', (event) => {
-  if (event.keyCode === 13 && userTask.value) {
-    if (!isEditedTask) { // is isEditedTask is not true
-      event.preventDefault();
-      const task = new Task(userTask);
-      Actions.addTask(task);
-      Actions.displayTasks(todoTasks);
-      userTask.value = '';
-    } else { // is isEditedTask is true, so we are editing the task
-      Actions.editTask(editId);
-      isEditedTask = false;
-    }
+const todoList = new TodoList();
+
+const renderTodos = () => {
+  todoElement.innerHTML = '';
+  if (todoList.getAllTodos().length === 0) {
+    todoElement.innerHTML = '<p class= "empty"> No todos yet</p>';
+  } else {
+    todoList.getAllTodos().forEach((todo, index) => {
+      const todoItem = document.createElement('div');
+      todoItem.classList.add('todo-item');
+      const checkTodoStatus = () => {
+        let status = '';
+        if (todo.completed) {
+          status = 'checked';
+        } else {
+          status = '';
+        }
+        return status;
+      };
+      todoItem.innerHTML = `
+      <div data-check = ${index} class="todo border-bottom flex">
+        <input data-complete = ${todo.id} class="box" ${checkTodoStatus()} type="checkbox" />
+        <input data-item = ${todo.id} class="item ${checkTodoStatus()}" type="text" value="${todo.description}" />
+        <i id="delete-btn" data-remote = ${index} class='bx bx-trash' id="delete-btn"></i>
+      </div>
+    `;
+      todoElement.appendChild(todoItem);
+    });
   }
+
+  const todoItems = document.querySelectorAll('.item');
+  const checkboxes = document.querySelectorAll('.box');
+  checkboxes.forEach((checkbox) => {
+    checkbox.addEventListener('click', (e) => {
+      if (checkbox.checked) {
+        todoList.changeCompleted(e.target.dataset.complete);
+        todoItems[e.target.dataset.complete - 1].classList.add('checked');
+      } else {
+        todoList.changeCompleted(e.target.dataset.complete);
+        todoItems[e.target.dataset.complete - 1].classList.remove('checked');
+      }
+    });
+  });
+
+  const deletBtn = document.querySelectorAll('#delete-btn');
+  deletBtn.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      const id = e.target.dataset.remote;
+      todoList.deleteTodo(id);
+      renderTodos();
+    });
+  });
+
+  const editTodo = document.querySelectorAll('.item');
+  const checkedBox = document.querySelectorAll('.box');
+  editTodo.forEach((todo) => {
+    todo.addEventListener('keyup', (e) => {
+      const id = e.target.dataset.item;
+      const description = e.target.value.trim();
+      const completed = false;
+      const newTodo = new Todo(description, completed, id);
+      todoList.updateTodo(id, newTodo);
+      checkedBox[id - 1].checked = false;
+      todo.classList.remove('checked');
+    });
+  });
+
+  const clearAllTodos = () => {
+    todoList.clearAllTodos();
+    renderTodos();
+  };
+  clear.addEventListener('click', clearAllTodos);
+};
+
+formSubmit.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const todoDescription = document.querySelector('.input').value;
+  const todo = new Todo(todoDescription, false, todoList.getAllTodos().length + 1);
+  todoList.addTodo(todo);
+  formSubmit.reset();
+  document.querySelector('.input').focus();
+  renderTodos();
 });
 
-//  Create the logic of delete and edit tasks
-todoContainer.addEventListener('click', (e) => {
-  if (e.target.classList.contains('trash')) {
-    // Implement the functionality for deleting a task
-    userTask.value = '';
-    const currentId = e.target.parentElement.parentElement.parentElement.id;
-    Actions.removeTask(currentId);
-    Actions.displayTasks(todoTasks);
-  } else if (e.target.classList.contains('description')) {
-    // Implement the functionality for editing a task
-    userTask.focus();
-    // Iterate throw list items to setback the initial background color
-    const allLi = todoContainer.childNodes;
-    for (let i = 0; i < allLi.length; i++) {
-      allLi[i].style.backgroundColor = 'lightcyan';
-    }
-    // set the background color of the focuced list item
-    e.target.parentElement.parentElement.style.backgroundColor = 'lightyellow';
-    userTask.value = e.target.textContent;
-    editId = e.target.parentElement.parentElement.id;
-    isEditedTask = true;
-  }
-});
-
-// toggle the completed status of a todo' tasks
-TaskStatus.toggleCompleted();
-
-// delete all completed task
-TaskStatus.deleteAllCompleted();
+window.onload = renderTodos();

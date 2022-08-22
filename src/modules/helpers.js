@@ -1,4 +1,3 @@
-/* eslint-disable no-plusplus */
 import { todoTasks } from './variable.js';
 
 export default class Helpers {

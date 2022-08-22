@@ -1,4 +1,3 @@
-/* eslint-disable no-plusplus */
 import './style.css';
 import {
   todoTasks, todoContainer, userTask,

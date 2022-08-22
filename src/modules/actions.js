@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-plusplus */
 import {
   todoTasks, userTask, todoContainer,
 } from './variable.js';

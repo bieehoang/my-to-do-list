@@ -10,6 +10,7 @@ Linters (Lighthouse, Webhint, Stylelint, Eslint)
 Git/GitHub work-flow
 
 ## LIVE DEMO
+[[Project : To-do list](https://bantealem.github.io/my-to-do-list/)
 
 ## Getting Started
 
@@ -46,6 +47,10 @@ If you are non a technical person you can download the zip file.
 - GitHub: [Bantealem](https://github.com/Bantealem)
 - Twitter: [Bantealem](https://twitter.com/BantealemG)
 - LinkedIn: [Bantealem](https://www.linkedin.com/in/bantealem-geto-a301b9213/)
+
+- GitHub: [@Sonickmumba](https://github.com/Sonickmumba)
+- Twitter: [@Sonick](https://twitter.com/MumbaSonick)
+- LinkedIn: [Sonick Mumba](https://www.linkedin.com/in/sonick-m-301557a2/)
 
 
 ## 🤝 Contributing

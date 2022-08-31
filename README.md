@@ -1,4 +1,5 @@
 # To Do List
+
 In this project, I will build a simple HTML list of To Do tasks. The list will be styled according to the specifications listed later in this lesson. This simple web page will be built using webpack and served by a webpack dev server
 
 ## Built With
@@ -9,8 +10,8 @@ Webpack
 Linters (Lighthouse, Webhint, Stylelint, Eslint)
 Git/GitHub work-flow
 
-## LIVE DEMO 
-
+## LIVE DEMO
+[[Project : To-do list](https://bantealem.github.io/my-to-do-list/)
 
 ## Getting Started
 
@@ -21,7 +22,7 @@ you can clone the repository by using the command below and run the "npm install
 ### Setup
 
 ```cmd
-git clone git@github.com/Bantealem/awesome-books.git
+git clone git@github.com:Bantealem/my-to-do-list.git
 npm install
 npm run build
 npm start
@@ -47,6 +48,11 @@ If you are non a technical person you can download the zip file.
 - GitHub: [Bantealem](https://github.com/Bantealem)
 - Twitter: [Bantealem](https://twitter.com/BantealemG)
 - LinkedIn: [Bantealem](https://www.linkedin.com/in/bantealem-geto-a301b9213/)
+
+- GitHub: [@Sonickmumba](https://github.com/Sonickmumba)
+- Twitter: [@Sonick](https://twitter.com/MumbaSonick)
+- LinkedIn: [Sonick Mumba](https://www.linkedin.com/in/sonick-m-301557a2/)
+
 
 ## 🤝 Contributing
 

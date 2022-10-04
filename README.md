@@ -17,7 +17,7 @@ Git/GitHub work-flow
 
 you can clone the repository by using the command below and run the "npm install" command to install the necessary tools
 
-[`https://github.com/Bantealem/my-to-do-list.git']
+ https://github.com/Bantealem/my-to-do-list.git
 
 ### Setup
 

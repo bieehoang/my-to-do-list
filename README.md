@@ -11,7 +11,7 @@ Linters (Lighthouse, Webhint, Stylelint, Eslint)
 Git/GitHub work-flow
 
 ## LIVE DEMO
-(https://bantealem.github.io/my-to-do-list/)
+[Live Demo](https://bantealem.github.io/my-to-do-list/)
 
 ## Getting Started
 

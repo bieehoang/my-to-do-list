@@ -1,8 +1,11 @@
-# To Do List
+![](https://img.shields.io/badge/Microverse-blueviolet)
+[![Twitter Badge](https://img.shields.io/badge/Twitter-Profile-informational?style=flat&logo=twitter&logoColor=white&color=1CA2F1)](https://twitter.com/BantealemG)
+[![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-Profile-informational?style=flat&logo=linkedin&logoColor=white&color=0D76A8)](https://www.linkedin.com/in/bantealem-geto-a301b9213/)
+# Bantealem-To Do List
 
 In this project, I will build a simple HTML list of To Do tasks. The list will be styled according to the specifications listed later in this lesson. This simple web page will be built using webpack and served by a webpack dev server
 
-## Built With
+## Built With ⚙️
 HTML
 Basic CSS
 JavaScript and ES6 syntax
@@ -64,6 +67,10 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- A great thanks to My coding partners, morning session team, and standup team Partners for their contributions.
-- Thanks to Code Reviewers for the insightful feedback.
-- Thanks to God and Microverse.
+## Acknowledgments
+
+- [Microverse](https://www.microverse.org/)
+- Code Reviewers
+- Coding Partners
+- Hat tip to anyone whose code was used
+- Inspira
